@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+  box-sizing: border-box;
+}
+      table,tr,td{
+        border: 1px solid black;
+      border-collapse: collapse;
+        margin-left: auto;
+        margin-right: auto;
+        font-size:55px;
+    }
+
+#myInput {
+  background-image: url('/css/searchicon.png');
+  background-position: 10px 12px;
+  background-repeat: no-repeat;
+  width: 100%;
+  font-size: 16px;
+  padding: 12px 20px 12px 40px;
+  border: 1px solid #ddd;
+  margin-bottom: 12px;
+}
+
+#myUL {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+#myUL li a {
+  border: 1px solid #ddd;
+  margin-top: -1px; /* Prevent double borders */
+  background-color: #f6f6f6;
+  padding: 12px;
+  text-decoration: none;
+  font-size: 18px;
+  color: black;
+  display: block
+}
+
+#myUL li a:hover:not(.header) {
+  background-color: #eee;
+}
+</style>
+</head>
+<body>
+
+<h2>My Phonebook</h2>
+
+<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name">
+
+<table id="mytable">
+<tr style="background-color: gray;">
+<td>Name</td>    
+<td>Degree</td>
+</tr> 
+<tr>
+<td>Akanksha</td>    
+<td>M.TECH</td>
+</tr> 
+<tr>
+<td>Alisha</td>    
+<td>M.S</td>
+
+</tr> 
+<tr>
+<td>Anusha</td>    
+<td>BBA</td>
+
+</tr> 
+<tr>
+<td>Rhea</td>    
+<td>Physics</td>
+
+</tr> 
+<tr>
+<td>Ashuti</td>    
+<td>HR Manager</td>
+
+</tr>     
+ <tr>
+<td>Anjali</td>    
+<td>Full Stack Developer</td>
+
+</tr>    
+</table>
+
+<script>
+function myFunction() {
+    var input, filter, ul, tr, td, i, txtValue;
+    input = document.getElementById("myInput");
+    filter = input.value.toUpperCase();
+    ul = document.getElementById("mytable");
+    tr = ul.getElementsByTagName("tr");
+    for (i = 0; i < tr.length; i++) {
+        td = tr[i].getElementsByTagName("td")[0];
+        txtValue = td.textContent || td.innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            tr[i].style.display = "";
+        } else {
+            tr[i].style.display = "none";
+        }
+    }
+}
+</script>
+
+</body>
+</html>
